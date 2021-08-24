@@ -118,7 +118,14 @@ RUN     ./configure --prefix=/etc/nginx \
         && mkdir /docker-entrypoint.d
 
 # Switch working directory to home folder
-WORKDIR /root
+WORKDIR /var/www
+
+# Copy / Download webserver files to be served
+RUN     git clone https://github.com/echoabhishek/echoabhishek.github.io.git html
+
+# Override default nginx configuration with a custom configuration and add custom nginx files
+COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
+COPY ./nginx/conf.d/*.conf /etc/nginx/conf.d/
 
 # Expose range of ports to be opened
 EXPOSE 80 443
