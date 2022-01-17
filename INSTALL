@@ -5,19 +5,18 @@ Guidelines for docker build
     docker build . -t nginx-all-modules
 
     # Run docker image created `nginx-all-modules` to build container
-    docker run --name nginx-all-modules -p 80:80 -p 443:443 -d nginx-all-modules
+    docker run --name nginx-all-modules -p 80:80 -p 443:443 -d echoabhishek/nginx-all-modules
 
     # Save the docker locally
     docker save -o <path for generated tar file> nginx-all-modules
     docker save <docker image name> | gzip > <docker image name>.tar.gz
-
 
     # Load docker image on remote server
     docker load -i <path to image tar file>
 
     # Start or stop the container
     docker start nginx-all-modules
-    docker start nginx-all-modules
+    docker stop nginx-all-modules
 
     # Reload nginx inside the container
     nginx -s reload
