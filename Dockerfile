@@ -24,10 +24,10 @@ WORKDIR /tmp
 RUN     wget https://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz && tar zxvf nginx-${NGINX_VERSION}.tar.gz \
         # Download the NGINX dependencies' source code and extract them
         ## PCRE version ${PCRE_VERSION}
-        && wget https://ftp.pcre.org/pub/pcre/pcre-${PCRE_VERSION}.tar.gz \
+        && wget http://ftp.cs.stanford.edu/pub/exim/pcre/pcre-${PCRE_VERSION}.tar.gz \
         && tar xzvf pcre-${PCRE_VERSION}.tar.gz \
         ## zlib version ${ZLIB_VERSION}
-        && wget https://www.zlib.net/zlib-${ZLIB_VERSION}.tar.gz \
+        && wget https://zlib.net/fossils/zlib-${ZLIB_VERSION}.tar.gz \
         && tar xzvf zlib-${ZLIB_VERSION}.tar.gz \
         ## OpenSSL version 1.1.0f
         && wget https://www.openssl.org/source/openssl-1.1.0f.tar.gz \
